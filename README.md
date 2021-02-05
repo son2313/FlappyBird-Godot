@@ -1,4 +1,4 @@
-# Flappy-bird-godot
+# FlappyBird-Godot
 A Flappy Bird clone using [Godot Engine](https://godotengine.org/)
 
 ## How to install
@@ -8,7 +8,7 @@ I uploaded this project just to save it :D. If you want to install this game, yo
    2. Clone this repository
    
     
-    git clone https://github.com/son2313/Flappy-bird-godot.git
+    git clone https://github.com/son2313/FlappyBird-Godot.git
     
     
    3. Open Godot Engine window and import this project
@@ -18,9 +18,9 @@ I uploaded this project just to save it :D. If you want to install this game, yo
    3. Build :D
  
  ## ScreenShot
- <img src="https://github.com/son2313/Flappy-bird-godot/blob/master/screenshot.png" width=500 height=750/>   <img src="https://github.com/son2313/Flappy-bird-godot/blob/master/screenshot1.png" width=500 height=750/>
+ <img src="https://github.com/son2313/FlappyBird-Godot/blob/master/screenshot.png" width=400 height=600/>   <img src="https://github.com/son2313/FlappyBird-Godot/blob/master/screenshot1.png" width=400 height=600/>
  
-  <img src="https://github.com/son2313/Flappy-bird-godot/blob/master/screenshot2.png" width=500 height=750/>   <img src="https://github.com/son2313/Flappy-bird-godot/blob/master/screenshot3.png" width=500 height=750/>
+  <img src="https://github.com/son2313/FlappyBird-Godot/blob/master/screenshot2.png" width=400 height=600/>   <img src="https://github.com/son2313/FlappyBird-Godot/blob/master/screenshot3.png" width=400 height=600/>
 
 
 
