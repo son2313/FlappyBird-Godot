@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/img/background-day.png" type="Texture" id=2]
+[ext_resource path="res://src/Obstacles/ObstaclesSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Obstacles/Base.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/World/World.gd" type="Script" id=5]
+[ext_resource path="res://src/UI/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/img/message.png" type="Texture" id=7]
+[ext_resource path="res://src/UI/GameOverLayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/img/background-night.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.156863 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="World" type="Node2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 5.96046e-07, -3.57628e-07 )
+scale = Vector2( 2.083, 1.758 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="background-night" type="Sprite" parent="."]
+scale = Vector2( 2.083, 1.758 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="message" type="Sprite" parent="."]
+position = Vector2( 288, 453 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 7 )
+
+[node name="ObstaclesSpawner" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 150, 450 )
+
+[node name="Base" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 800 )
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Hit" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 600.0
+margin_bottom = 900.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HitAnimation" type="AnimationPlayer" parent="Hit"]
+anims/animation = SubResource( 1 )
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 600.0
+margin_bottom = 900.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="Fade"]
+anims/animation = SubResource( 2 )
+
+[node name="GameOverLayer" parent="." instance=ExtResource( 8 )]
+[connection signal="died" from="Player" to="." method="_on_Player_died"]
+[connection signal="play" from="Player" to="." method="_on_Player_play"]
+
+[editable path="Player"]

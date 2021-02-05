@@ -1,0 +1,353 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/img/gameover.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/scoreboard.png" type="Texture" id=2]
+[ext_resource path="res://src/UI/GameOverLayer.gd" type="Script" id=3]
+[ext_resource path="res://assets/img/restartbutton.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/okbutton.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/sparkle.png" type="Texture" id=6]
+[ext_resource path="res://assets/sounds/sfx_swooshing.wav" type="AudioStream" id=7]
+[ext_resource path="res://src/UI/ScoreBoard.gd" type="Script" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animation"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 300, 250 ), Vector2( 300, 235 ), Vector2( 300, 250 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "animation"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Medal/sparkle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 0.6, 0.6 ), Vector2( 0.01, 0.01 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Medal/sparkle2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.8, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 0.5, 0.5 ), Vector2( 0.01, 0.01 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Medal/sparkle3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.5, 2.1, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 0.6, 0.6 ), Vector2( 0.01, 0.01 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Medal/sparkle4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.1, 1.8, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 0.7, 0.7 ), Vector2( 0.01, 0.01 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("okbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("okbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("okbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("okbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("restartbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("restartbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("restartbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("restartbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "animation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="GameOverLayer" type="CanvasLayer"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 414.0, 262.0, 783.0, 747.0, 963.835, 999.917, 901.0, 1029.76, 1065.84 ],
+"_edit_vertical_guides_": [ 448.218, 150.0, 300.284, 436.191 ]
+}
+
+[node name="GameOverMessage" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 300, 250 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 1 )
+
+[node name="MessageAnimation" type="AnimationPlayer" parent="GameOverMessage"]
+anims/animation = SubResource( 1 )
+
+[node name="ScoreBoard" type="Sprite" parent="."]
+position = Vector2( 300, 1000 )
+texture = ExtResource( 2 )
+script = ExtResource( 8 )
+
+[node name="Medal" type="Sprite" parent="ScoreBoard"]
+position = Vector2( -103.59, 11.7809 )
+
+[node name="sparkle" type="Sprite" parent="ScoreBoard/Medal"]
+position = Vector2( 0.793472, 17.3811 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 6 )
+
+[node name="sparkle2" type="Sprite" parent="ScoreBoard/Medal"]
+position = Vector2( 11.8025, 7.15607 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 6 )
+
+[node name="sparkle3" type="Sprite" parent="ScoreBoard/Medal"]
+position = Vector2( -14.5235, 1.711 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 6 )
+
+[node name="sparkle4" type="Sprite" parent="ScoreBoard/Medal"]
+position = Vector2( 6.26738, -5.78583 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 6 )
+
+[node name="New" type="Sprite" parent="ScoreBoard"]
+position = Vector2( 71.1823, 15.1029 )
+
+[node name="ScoreBoardTween" type="Tween" parent="ScoreBoard"]
+
+[node name="ScoreBoardSound" type="AudioStreamPlayer" parent="ScoreBoard"]
+stream = ExtResource( 7 )
+
+[node name="SpakleAnimation" type="AnimationPlayer" parent="ScoreBoard"]
+anims/animation = SubResource( 2 )
+
+[node name="ScoreUI" type="Sprite" parent="."]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OkButton" type="TextureButton" parent="Control"]
+margin_left = 175.0
+margin_top = 550.0
+margin_right = 255.0
+margin_bottom = 580.0
+rect_scale = Vector2( 1.4, 1.4 )
+rect_pivot_offset = Vector2( 40, 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="okbutton" type="Sprite" parent="Control/OkButton"]
+position = Vector2( 40, 15 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 5 )
+
+[node name="OkAnimation" type="AnimationPlayer" parent="Control/OkButton"]
+anims/appear = SubResource( 3 )
+anims/press = SubResource( 4 )
+anims/pressing = SubResource( 5 )
+anims/release = SubResource( 6 )
+
+[node name="RestartButton" type="TextureButton" parent="Control"]
+margin_left = 350.0
+margin_top = 550.0
+margin_right = 430.0
+margin_bottom = 580.0
+rect_scale = Vector2( 1.4, 1.4 )
+rect_pivot_offset = Vector2( 40, 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restartbutton" type="Sprite" parent="Control/RestartButton"]
+position = Vector2( 40, 15 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 4 )
+
+[node name="RestartAnimation" type="AnimationPlayer" parent="Control/RestartButton"]
+anims/appear = SubResource( 7 )
+anims/press = SubResource( 8 )
+anims/pressing = SubResource( 9 )
+anims/release = SubResource( 10 )
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 600.0
+margin_bottom = 900.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="Fade"]
+anims/animation = SubResource( 11 )
+[connection signal="button_down" from="Control/OkButton" to="." method="_on_OkButton_button_down"]
+[connection signal="button_up" from="Control/OkButton" to="." method="_on_OkButton_button_up"]
+[connection signal="button_down" from="Control/RestartButton" to="." method="_on_RestartButton_button_down"]
+[connection signal="button_up" from="Control/RestartButton" to="." method="_on_RestartButton_button_up"]

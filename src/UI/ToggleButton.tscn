@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/img/dot.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/toggleoff.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/toggleon.png" type="Texture" id=3]
+[ext_resource path="res://src/UI/ToggleAnimationTree.gd" type="Script" id=4]
+[ext_resource path="res://src/UI/ToggleButton.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "toggle_off"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knob:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 56, 9 ), Vector2( 0, 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ToggleOn:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "toggle_on"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Knob:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 9 ), Vector2( 56, 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ToggleOn:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "toggle_off"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "toggle_on"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachine" id=7]
+states/toggle_off/node = SubResource( 3 )
+states/toggle_off/position = Vector2( 385, 73 )
+states/toggle_on/node = SubResource( 4 )
+states/toggle_on/position = Vector2( 148, 73 )
+transitions = [ "toggle_on", "toggle_off", SubResource( 5 ), "toggle_off", "toggle_on", SubResource( 6 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+
+[node name="ToggleButton" type="CheckButton"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = -1.0
+margin_right = 76.0
+margin_bottom = 39.0
+focus_mode = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToggleOff" type="NinePatchRect" parent="."]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 65.0
+margin_bottom = 31.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToggleOn" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 65.0
+margin_bottom = 31.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Knob" type="NinePatchRect" parent="."]
+margin_top = 9.0
+margin_right = 18.0
+margin_bottom = 27.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToggleAnimation" type="AnimationPlayer" parent="."]
+anims/toggle_off = SubResource( 1 )
+anims/toggle_on = SubResource( 2 )
+
+[node name="ToggleAnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 7 )
+anim_player = NodePath("../ToggleAnimation")
+active = true
+parameters/playback = SubResource( 8 )
+script = ExtResource( 4 )
+[connection signal="toggled" from="." to="ToggleAnimationTree" method="_on_ToggleButton_toggled"]

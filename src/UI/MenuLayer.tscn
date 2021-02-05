@@ -1,0 +1,567 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://assets/img/yellowbird-upflap.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/message1.png" type="Texture" id=2]
+[ext_resource path="res://src/UI/MenuLayer.gd" type="Script" id=3]
+[ext_resource path="res://assets/img/yellowbird-downflap.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/startbutton.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/yellowbird-midflap.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/background-night.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/background-day.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/settingbutton.png" type="Texture" id=9]
+[ext_resource path="res://assets/img/base.png" type="Texture" id=10]
+[ext_resource path="res://src/UI/SettingPanelLayer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/img/google.png" type="Texture" id=12]
+[ext_resource path="res://assets/img/discord.png" type="Texture" id=13]
+[ext_resource path="res://assets/img/facebook.png" type="Texture" id=14]
+[ext_resource path="res://assets/img/telegram.png" type="Texture" id=15]
+[ext_resource path="res://assets/img/bluebird-downflap.png" type="Texture" id=16]
+[ext_resource path="res://assets/img/bluebird-upflap.png" type="Texture" id=17]
+[ext_resource path="res://assets/img/bluebird-midflap.png" type="Texture" id=18]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animation"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 800 ), Vector2( -172, 800 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=4]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15, 173 ), Vector2( 15, 185 ), Vector2( 15, 173 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("StartButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("StartButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("StartButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("settingbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("settingbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("settingbutton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("DiscordButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("DiscordButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("DiscordButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FacebookButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("FacebookButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FacebookButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("GoogleButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GoogleButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("GoogleButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TelegramButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TelegramButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TelegramButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="MenuLayer" type="CanvasLayer"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 520.0, 475.0, 325.0 ],
+"_edit_vertical_guides_": [ 150.0, 400.0, 200.0, 300.0 ]
+}
+
+[node name="background-day" type="Sprite" parent="."]
+scale = Vector2( 2.08309, 1.75758 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="background-night" type="Sprite" parent="."]
+scale = Vector2( 2.083, 1.758 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="base" type="Sprite" parent="."]
+position = Vector2( -86, 800 )
+scale = Vector2( 1.4, 1 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="BaseScrollAnimation" type="AnimationPlayer" parent="base"]
+autoplay = "animation"
+anims/animation = SubResource( 1 )
+
+[node name="StartMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartMessage" type="TextureRect" parent="StartMenu"]
+margin_left = 15.0
+margin_top = 179.0
+margin_right = 444.0
+margin_bottom = 304.001
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Sprite" parent="StartMenu/StartMessage"]
+position = Vector2( 240, 100 )
+texture = ExtResource( 2 )
+
+[node name="YellowBird" type="AnimatedSprite" parent="StartMenu/StartMessage"]
+position = Vector2( 490, 100 )
+scale = Vector2( 1.7, 1.7 )
+frames = SubResource( 2 )
+
+[node name="BlueBird" type="AnimatedSprite" parent="StartMenu/StartMessage"]
+position = Vector2( 490, 100 )
+scale = Vector2( 1.7, 1.7 )
+frames = SubResource( 3 )
+
+[node name="TitleAnimation" type="AnimationPlayer" parent="StartMenu/StartMessage"]
+autoplay = "animation"
+anims/animation = SubResource( 4 )
+
+[node name="PlayButton" type="TextureButton" parent="StartMenu"]
+margin_left = 144.0
+margin_top = 500.0
+margin_right = 224.0
+margin_bottom = 530.0
+rect_scale = Vector2( 1.4, 1.4 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Sprite" parent="StartMenu/PlayButton"]
+position = Vector2( 40, 15 )
+texture = ExtResource( 5 )
+
+[node name="StartPressAnimation" type="AnimationPlayer" parent="StartMenu/PlayButton"]
+anims/press = SubResource( 5 )
+anims/pressing = SubResource( 6 )
+anims/release = SubResource( 7 )
+
+[node name="SettingButton" type="TextureButton" parent="StartMenu"]
+margin_left = 344.0
+margin_top = 500.0
+margin_right = 424.0
+margin_bottom = 530.0
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settingbutton" type="Sprite" parent="StartMenu/SettingButton"]
+position = Vector2( 40, 16 )
+texture = ExtResource( 9 )
+
+[node name="SettingPressAnimation" type="AnimationPlayer" parent="StartMenu/SettingButton"]
+anims/press = SubResource( 8 )
+anims/pressing = SubResource( 9 )
+anims/release = SubResource( 10 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartMenu"]
+margin_left = 60.0
+margin_top = 617.0
+margin_right = 541.0
+margin_bottom = 681.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 80
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoogleButton" type="TextureButton" parent="StartMenu/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 32, 32 )
+size_flags_horizontal = 2
+texture_normal = ExtResource( 12 )
+
+[node name="FacebookButton" type="TextureButton" parent="StartMenu/HBoxContainer"]
+margin_left = 144.0
+margin_right = 208.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+size_flags_horizontal = 2
+texture_normal = ExtResource( 14 )
+
+[node name="TelegramButton" type="TextureButton" parent="StartMenu/HBoxContainer"]
+margin_left = 288.0
+margin_right = 352.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+size_flags_horizontal = 2
+texture_normal = ExtResource( 15 )
+
+[node name="DiscordButton" type="TextureButton" parent="StartMenu/HBoxContainer"]
+margin_left = 432.0
+margin_right = 495.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+size_flags_horizontal = 2
+texture_normal = ExtResource( 13 )
+
+[node name="SocialButtonAnimation" type="AnimationPlayer" parent="StartMenu/HBoxContainer"]
+anims/discord_press = SubResource( 11 )
+anims/discord_pressing = SubResource( 12 )
+anims/discord_release = SubResource( 13 )
+anims/facebook_press = SubResource( 14 )
+anims/facebook_pressing = SubResource( 15 )
+anims/facebook_release = SubResource( 16 )
+anims/google_press = SubResource( 17 )
+anims/google_pressing = SubResource( 18 )
+anims/google_release = SubResource( 19 )
+anims/telegram_press = SubResource( 20 )
+anims/telegram_pressing = SubResource( 21 )
+anims/telegram_release = SubResource( 22 )
+
+[node name="SettingPanelLayer" parent="StartMenu" instance=ExtResource( 11 )]
+margin_left = 121.0
+margin_top = 217.0
+margin_right = 469.0
+margin_bottom = 548.0
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 600.0
+margin_bottom = 900.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="Fade"]
+anims/fade_in = SubResource( 23 )
+anims/fade_out = SubResource( 24 )
+[connection signal="button_down" from="StartMenu/PlayButton" to="." method="_on_PlayButton_button_down"]
+[connection signal="button_up" from="StartMenu/PlayButton" to="." method="_on_PlayButton_button_up"]
+[connection signal="button_down" from="StartMenu/SettingButton" to="." method="_on_SettingButton_button_down"]
+[connection signal="button_up" from="StartMenu/SettingButton" to="." method="_on_SettingButton_button_up"]
+[connection signal="button_down" from="StartMenu/HBoxContainer/GoogleButton" to="." method="_on_GoogleButton_button_down"]
+[connection signal="button_up" from="StartMenu/HBoxContainer/GoogleButton" to="." method="_on_GoogleButton_button_up"]
+[connection signal="button_down" from="StartMenu/HBoxContainer/FacebookButton" to="." method="_on_FacebookButton_button_down"]
+[connection signal="button_up" from="StartMenu/HBoxContainer/FacebookButton" to="." method="_on_FacebookButton_button_up"]
+[connection signal="button_down" from="StartMenu/HBoxContainer/TelegramButton" to="." method="_on_TelegramButton_button_down"]
+[connection signal="button_up" from="StartMenu/HBoxContainer/TelegramButton" to="." method="_on_TelegramButton_button_up"]
+[connection signal="button_down" from="StartMenu/HBoxContainer/DiscordButton" to="." method="_on_DiscordButton_button_down"]
+[connection signal="button_up" from="StartMenu/HBoxContainer/DiscordButton" to="." method="_on_DiscordButton_button_up"]
+[connection signal="adaptive_bg" from="StartMenu/SettingPanelLayer" to="." method="_on_SettingPanelLayer_adaptive_bg"]
+[connection signal="new_bird" from="StartMenu/SettingPanelLayer" to="." method="_on_SettingPanelLayer_new_bird"]

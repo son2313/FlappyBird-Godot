@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/img/settings.png" type="Texture" id=1]
+[ext_resource path="res://src/UI/ToggleButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/SettingPanelLayer.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="SettingPanelLayer" type="PopupPanel"]
+margin_right = 348.0
+margin_bottom = 331.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings"]
+margin_left = 3.23785
+margin_top = 54.2324
+margin_right = 316.238
+margin_bottom = 267.232
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToggleSound" parent="settings/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 237.0
+margin_top = 0.0
+margin_right = 313.0
+margin_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 2
+align = 1
+
+[node name="ToggleBirds" parent="settings/VBoxContainer" instance=ExtResource( 2 )]
+light_mask = -2147483647
+margin_left = 237.0
+margin_top = 86.0
+margin_right = 313.0
+margin_bottom = 126.0
+size_flags_horizontal = 8
+size_flags_vertical = 2
+
+[node name="ToggleBackground" parent="settings/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 237.0
+margin_top = 173.0
+margin_right = 313.0
+margin_bottom = 213.0
+size_flags_horizontal = 8
+[connection signal="toggled" from="settings/VBoxContainer/ToggleSound" to="." method="_on_ToggleSound_toggled"]
+[connection signal="toggled" from="settings/VBoxContainer/ToggleBirds" to="." method="_on_ToggleBirds_toggled"]
+[connection signal="toggled" from="settings/VBoxContainer/ToggleBackground" to="." method="_on_ToggleBackground_toggled"]
