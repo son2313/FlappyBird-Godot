@@ -141,7 +141,7 @@ func update_score(score, high_score, is_highscore):
 		var tween = Tween.new()
 		score_ui.add_child(new_sprite)
 		new_sprite.add_child(tween)
-		new_sprite.set_texture(number_img[int(str_score[i])])
+		new_sprite.set_texture(number_img[int(str_highscore[i])])
 		if i == n_score - 1:
 			if str_score[i] == '1':
 				previous_size_x = 16
